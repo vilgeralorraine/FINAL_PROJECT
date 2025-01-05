@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
+const http = require('http');
+const server = http.createServer(app);
+
 // start the server
 app.get("/", (req, res)=> {
     res.send(`
@@ -67,8 +70,16 @@ const submitJournalForm = require('./API/submit')
 //use API
 app.use("/submit", submitJournalForm);
 
-const PORT = 4000;
+//start the server locally
+// const PORT = 4000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
+
+//start the server in MS Azure
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT, ()=> {
+    console.log(`Server is running on port ${PORT}`);
+})
