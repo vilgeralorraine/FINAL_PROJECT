@@ -10,8 +10,7 @@ app.use(express.static('public'));
 
 // start the server
 app.get("/", (req, res)=> {
-    res.send(`
-        err`)
+    res.send(`try try`)
 });
 
 //connection to mongodb
