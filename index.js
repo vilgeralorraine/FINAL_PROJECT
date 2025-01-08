@@ -6,6 +6,8 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 
+app.use(express.static('public'));
+
 // start the server
 app.get("/", (req, res)=> {
     res.send(`
