@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 function JournalForm() {
     const [name, setNewName] = useState(""); 
-    const [entries, setEntries] = useState([]); 
+    const [entries, setMessage] = useState([]); 
     const [entry, setEntry] = useState(""); 
 
     function handleChange(event) {
@@ -16,7 +16,7 @@ function JournalForm() {
         event.preventDefault(); 
         if (name && entry) { 
             const newEntry = { name, text: entry, date: new Date().toLocaleString() };
-            setEntries([...entries, newEntry]); 
+            setMessage([...entries, newEntry]); 
             setNewName(""); 
             setEntry("");
         } 
